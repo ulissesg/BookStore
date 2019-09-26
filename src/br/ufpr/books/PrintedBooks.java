@@ -1,5 +1,6 @@
 package br.ufpr.books;
 
+import br.ufpr.people.Author;
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -13,13 +14,18 @@ public class PrintedBooks extends Books{
     private double depth;
     private double weight;
     
+    
+    public PrintedBooks (Author author){
+        this.author = author;
+    }
+    
     @Override
-    public void showInfo(){
+    public String showInfo(){
         
         Locale ptBR = new Locale("pt", "BR");
         NumberFormat numberFormat = NumberFormat.getCurrencyInstance(ptBR);
         
-        System.out.println("Name: " + this.getName() + "\n"
+        return("Name: " + this.getName() + "\n"
         + "Description: " + this.getDescription() + "\n"
         + "Value: " + numberFormat.format(getValue()) + "\n"
         + "ISBN - 13: " + this.getIsbn13() + "\n"
@@ -27,7 +33,10 @@ public class PrintedBooks extends Books{
         + "Width: " + this.getWidth() + "\n"
         + "Height: " + this.getHeight() + "\n"
         + "Depth: " + this.getDepth() + "\n"
-        + "Weight: " + this.getWeight());
+        + "Weight: " + this.getWeight()+ "\n"
+        + "Author Name: " + this.author.getPeapleName() + "\n"
+        + "Author Email: " + this.author.getPeapleEmail() + "\n"
+        + "Author CPF: " + this.author.getPeapleCpf() + "\n");
     }
 
     public double getHeight() {

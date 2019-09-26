@@ -5,6 +5,7 @@
  */
 package br.ufpr.books;
 
+import br.ufpr.people.Author;
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -22,13 +23,18 @@ public class EBooks extends Books {
         this.asin = "xxxxxxxxxx";
     }
     
+    public EBooks(Author author){
+        this.asin = "xxxxxxxxxx";
+        this.author = author;
+    }
+    
     @Override
-    public void showInfo(){
+    public String showInfo(){
         
         Locale ptBR = new Locale("pt", "BR");
         NumberFormat numberFormat = NumberFormat.getCurrencyInstance(ptBR);
         
-        System.out.println("Name: " + this.getName() + "\n"
+        return("Name: " + this.getName() + "\n"
         + "Description: " + this.getDescription() + "\n"
         + "Value: " + numberFormat.format(getValue()) + "\n"
         + "ASIN: " + this.getAsin() + "\n"
@@ -36,7 +42,10 @@ public class EBooks extends Books {
         + "ISBN - 10: " + this.getIsbn10() + "\n"
         + "Format: " + this.getFormat() + "\n"
         + "Vocabulary Tips: " + this.isVocabularyTips() + "\n"
-        + "File Size: " + this.getFileSize());
+        + "File Size: " + this.getFileSize() + "\n"
+        + "Author Name: " + this.author.getPeapleName() + "\n"
+        + "Author Email: " + this.author.getPeapleEmail() + "\n"
+        + "Author CPF: " + this.author.getPeapleCpf() + "\n");
     }
 
     public String getAsin() {

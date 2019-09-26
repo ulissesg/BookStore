@@ -11,50 +11,50 @@ package br.ufpr.people;
  */
 public class People {
     
-    private String name;
-    private int age;
-    private String cpf;
-    private String adress;
-    private String email;
+    private String peapleName;
+    private int peapleAge;
+    private String peapleCpf;
+    private String peapleAdress;
+    private String peapleEmail;
 
-    public String getName() {
-        return name;
+    public String getPeapleName() {
+        return peapleName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPeapleName(String peapleName) {
+        this.peapleName = peapleName;
     }
 
-    public int getAge() {
-        return age;
+    public int getPeapleAge() {
+        return peapleAge;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setPeapleAge(int peapleAge) {
+        this.peapleAge = peapleAge;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getPeapleCpf() {
+        return peapleCpf;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setPeapleCpf(String peapleCpf) {
+        this.peapleCpf = peapleCpf;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getPeapleAdress() {
+        return peapleAdress;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setPeapleAdress(String peapleAdress) {
+        this.peapleAdress = peapleAdress;
     }
 
-    public String getEmail() {
-        return email;
+    public String getPeapleEmail() {
+        return peapleEmail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPeapleEmail(String peapleEmail) {
+        this.peapleEmail = peapleEmail;
     }
-    
+   
 }

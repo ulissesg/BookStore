@@ -12,16 +12,16 @@ package br.ufpr.people;
 public class Author extends People{
     
     public Author() {
-        this.setName("xxxxxxxxxxxxxx");
-        this.setEmail("example@gmail.com");
-        this.setCpf("xxx.xxx.xxx-xx");
+        this.setPeapleName("xxxxxxxxxxxxxx");
+        this.setPeapleEmail("example@gmail.com");
+        this.setPeapleCpf("xxx.xxx.xxx-xx");
     }
     
     public void showAuthorInfo(){
         if (this.verifyAuthor() == true){
-            System.out.println("Author Name: " + this.getName() + "\n"
-            + "Author Email: " + this.getEmail() + "\n"
-            + "Author CPF: " + this.getCpf() + "\n");
+            System.out.println("Author Name: " + this.getPeapleName() + "\n"
+            + "Author Email: " + this.getPeapleEmail() + "\n"
+            + "Author CPF: " + this.getPeapleCpf() + "\n");
         }
         else{
             System.err.println("There`s no author");
@@ -30,8 +30,8 @@ public class Author extends People{
     }
     
      public boolean verifyAuthor (){
-        if (this.getName() == null && this.getEmail() == null 
-                && this.getCpf() == null){
+        if (this.getPeapleName() == null && this.getPeapleEmail() == null 
+                && this.getPeapleCpf() == null){
             return false;
         }
         return true;

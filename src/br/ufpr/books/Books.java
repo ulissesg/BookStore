@@ -33,7 +33,8 @@ public class Books {
         this.author = author;
     }
     
-    public void showInfo(){
+    public String showInfo(){
+        return null;
     }
     
     public boolean priceAdjustment (double adjustment){
