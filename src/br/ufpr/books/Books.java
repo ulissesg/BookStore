@@ -16,7 +16,7 @@ public class Books {
     private double value;
     private String isbn13;
     private String isbn10;
-    Author author = new Author();
+    public Author author = new Author();
     
     public Books(){
         this.isbn10 = "0000000000";

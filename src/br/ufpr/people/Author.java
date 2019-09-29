@@ -10,23 +10,22 @@ package br.ufpr.people;
  * @author ulisses
  */
 public class Author extends People{
+    private double ID;
     
     public Author() {
+        this.setID(0000000000000);
         this.setPeapleName("xxxxxxxxxxxxxx");
         this.setPeapleEmail("example@gmail.com");
         this.setPeapleCpf("xxx.xxx.xxx-xx");
     }
     
-    public void showAuthorInfo(){
-        if (this.verifyAuthor() == true){
-            System.out.println("Author Name: " + this.getPeapleName() + "\n"
-            + "Author Email: " + this.getPeapleEmail() + "\n"
-            + "Author CPF: " + this.getPeapleCpf() + "\n");
-        }
-        else{
-            System.err.println("There`s no author");
-        }
-        
+    public String showAuthorInfo(){
+        return("\n--------------------------------------------------------\n"
+                + "Author ID: " + this.getID() + "\n"
+                + "Author Name: " + this.getPeapleName() + "\n"
+                + "Author Email: " + this.getPeapleEmail() + "\n"
+                + "Author CPF: " + this.getPeapleCpf()
+                + "\n-------------------------------------------------------");       
     }
     
      public boolean verifyAuthor (){
@@ -35,5 +34,13 @@ public class Author extends People{
             return false;
         }
         return true;
+    }
+
+    public double getID() {
+        return ID;
+    }
+
+    public void setID(double ID) {
+        this.ID = ID;
     }
 }

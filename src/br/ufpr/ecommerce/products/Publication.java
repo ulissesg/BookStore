@@ -19,8 +19,9 @@ import java.util.Scanner;
  */
 public class Publication extends Books{
     
-    static Author author = new Author();
+    // mover para implementar a8utor static Author author = new Author();
     static Scanner input = new Scanner(System.in);
+    static ArrayList <Author> authors = new ArrayList<>();
     static ArrayList<EBooks> ebooks = new ArrayList<>();
     static ArrayList<PrintedBooks> printedBooks = new ArrayList<>();
     
@@ -51,10 +52,16 @@ public class Publication extends Books{
             case 1:
                 bookRegistration();
                 menu();
-            case 2:
-                listBooks();
+            case 2: 
+                authorRegistration();
                 menu();
             case 3:
+                listBooks();
+                menu();
+            case 4:
+                listAuthors();
+                menu();
+            case 5:
                 readjustPrice();
                 menu();
             default:
@@ -74,17 +81,19 @@ public class Publication extends Books{
         System.out.println("                      OPTIONS");
         System.out.println(" _________________________________________________\n");
         System.out.println(" 1- Include book.");
-        System.out.println(" 2- List books.");
-        System.out.println(" 3- Readjust book price.");
+        System.out.println(" 2- Include Author.");
+        System.out.println(" 3- List books.");
+        System.out.println(" 4- List Authors.");
+        System.out.println(" 5- Readjust book price.");
         System.out.println(" _________________________________________________\n");
-        System.out.println(" Type the number of an option: ");
+        System.out.println(" Enter the number of an option: ");
         
     }
     
     static void bookRegistration (){
-        System.out.println("Type the number of books to be registered");
+        System.out.println("Enter the number of books to be registered");
         int numBooks = input.nextInt();
-        System.out.println("Type of books to be registered");
+        System.out.println("Enter of books to be registered");
         System.out.println(" _________________________________________________");
         System.out.println("1- E books");
         System.out.println("2- Printed books");
@@ -99,49 +108,53 @@ public class Publication extends Books{
                 inputDataPrintedBook();
             }
         }else{
-            System.err.println("Type of book error");
+            System.err.println("Enter of book error");
         }
         
     }
     
     static void inputDataEBook(){
-        
-        inputDataAuthor();
-        
-       if (author.verifyAuthor()) {
-           EBooks ebook = new EBooks(author);
-           inputDataEBookBook(ebook);
-       }else{
-           System.out.println("There's no author");
-       }
+//        Author author = new Author();
+//        author = authors.get(0);
+////        inputDataAuthor();
+//        
+//       if (author.verifyAuthor()) {
+//           EBooks ebook = new EBooks(author);
+//           inputDataEBookBook(ebook);
+//       }else{
+//           System.out.println("There's no author");
+//       }
     }
     
-    static void inputDataAuthor(){
-        System.out.println("Type the Author name:");
+    static void inputDataAuthor(Author author){
+        
+        System.out.println("Enter an ID (number) for the author");
+        author.setID(input.nextDouble());
+        System.out.println("Enter the Author name:");
         author.setPeapleName(input.next());
-        System.out.println("Type the Author e-mail:");
+        System.out.println("Enter the Author e-mail:");
         author.setPeapleEmail(input.next());
-        System.out.println("Type the Author CPF:");
-        author.setPeapleCpf(input.next());
+        System.out.println("Enter the Author CPF:");
+        author.setPeapleCpf(input.next());     
     }
-    
+
     static void inputDataEBookBook(EBooks ebook) {
-        System.out.println("Type the book name");
+        System.out.println("Enter the book name");
         ebook.setName(input.next());
-        System.out.println("Type the book description");
+        System.out.println("Enter the book description");
         ebook.setDescription(input.next());
-        System.out.println("Type the book value");
+        System.out.println("Enter the book value");
         ebook.setValue(input.nextDouble());
-        System.out.println("Type the book ASIN ( If it dosen't exist type 0 )");
+        System.out.println("Enter the book ASIN ( If it dosen't exist type 0 )");
         ebook.setAsin(input.next());
-        System.out.println("Type the book ISBN-10 ( If it dosen't exist type 0 )");
+        System.out.println("Enter the book ISBN-10 ( If it dosen't exist type 0 )");
         ebook.setIsbn10(input.next());
-        System.out.println("Type the book ISBN-13 ( If it dosen't exist type 0 )");
+        System.out.println("Enter the book ISBN-13 ( If it dosen't exist type 0 )");
         ebook.setIsbn13(input.next());
-        System.out.println("Type the book format");
+        System.out.println("Enter the book format");
         ebook.setFormat(input.next());
         VTEBooks(ebook);
-        System.out.println("Type the book size");
+        System.out.println("Enter the book size");
         ebook.setFileSize(input.nextDouble());
         System.out.println("\n---------------------------------------------------------\n");
         
@@ -150,7 +163,7 @@ public class Publication extends Books{
     }
     
     static void VTEBooks(EBooks ebook){
-        System.out.println("Type 'yes' for existent vocabulary tips and 'no' for not existent");
+        System.out.println("Enter 'yes' for existent vocabulary tips and 'no' for not existent");
         String answer = input.next();
         if (answer.equalsIgnoreCase("yes")){
             ebook.setVocabularyTips(true);
@@ -161,68 +174,71 @@ public class Publication extends Books{
     
     static void inputDataPrintedBook(){
          
-        inputDataAuthor();
+//        inputDataAuthor();
         
-        if (author.verifyAuthor()) {
-            PrintedBooks printedBook = new PrintedBooks(author);
-            inputDataPrintedBookBook(printedBook);
-        }else{
-            System.out.println("There's no author");
-        }
+//        if (author.verifyAuthor()) {
+//            PrintedBooks printedBook = new PrintedBooks(author);
+//            inputDataPrintedBookBook(printedBook);
+//        }else{
+//            System.out.println("There's no author");
+//        }
     }
     
     static void inputDataPrintedBookBook (PrintedBooks printedBook){
-        System.out.println("Type the book name");
+        System.out.println("Enter the book name");
         printedBook.setName(input.next());
-        System.out.println("Type the book description");
+        System.out.println("Enter the book description");
         printedBook.setDescription(input.next());
-        System.out.println("Type the book value");
+        System.out.println("Enter the book value");
         printedBook.setValue(input.nextDouble());
-        System.out.println("Type the book ISBN-10 ( If it dosen't exist type 0 )");
+        System.out.println("Enter the book ISBN-10 ( If it dosen't exist type 0 )");
         printedBook.setIsbn10(input.next());
-        System.out.println("Type the book ISBN-13 ( If it dosen't exist type 0 )");
+        System.out.println("Enter the book ISBN-13 ( If it dosen't exist type 0 )");
         printedBook.setIsbn13(input.next());
-        System.out.println("Type the book width");
+        System.out.println("Enter the book width");
         printedBook.setWidth(input.nextDouble());
-        System.out.println("Type the book height");
+        System.out.println("Enter the book height");
         printedBook.setHeight(input.nextDouble());
-        System.out.println("Type the book Depth");
+        System.out.println("Enter the book Depth");
         printedBook.setDepth(input.nextDouble());
-        System.out.println("Type the book weight");
+        System.out.println("Enter the book weight");
         printedBook.setWeight(input.nextDouble());
         System.out.println("\n---------------------------------------------------------\n");
         
         printedBooks.add(printedBook);
     }
     
+    static void authorRegistration(){
+        Author author = new Author();
+        inputDataAuthor(author);
+        // TODO checkar se o author existe antes de adicionar.
+        authors.add(author);
+    }
+    
+
+    static void listAuthors(){
+        if (authors.isEmpty()){
+            System.out.println("---------------List of authors is Empty-----------------");
+        }else{
+            authors.forEach(o->System.out.println(o.showAuthorInfo()));
+            
+        }  
+    }
+    
+    
     static void listBooks(){
+        // bug imprime imprime o case e da erro
         menuListBooks();
         int option = input.nextInt();
         switch (option){
             case 1:
-                if (!ebooks.isEmpty()){
-                    ebooks.forEach(o->System.out.println(o.showInfo()));
-                }else {
-                    System.out.println("---------------Empty-----------------");
-                    menu();
-                }
+                showListEBooks();
             case 2:
-                if (!printedBooks.isEmpty()){
-                    printedBooks.forEach(o->System.out.println(o.showInfo()));
-                }else{
-                    System.out.println("---------------Empty-----------------");
-                    menu();
-                }
+                showListPrintedBooks();
             case 3: 
-                if (!ebooks.isEmpty() && !printedBooks.isEmpty()){
-                    ebooks.forEach(o->System.out.println(o.showInfo()));
-                    System.out.println("\n ------------------------------------------------------------\n");
-                    printedBooks.forEach(o->System.out.println(o.showInfo()));
-                }else {
-                    System.out.println("---------------Empty-----------------");
-                    menu();
-                }
-                
+                showListEBooks();
+                System.out.println("----------------------------------------------------");
+                showListPrintedBooks();
             default:
                 System.out.println("Something went wrong, Try again");
                 listBooks();
@@ -230,12 +246,28 @@ public class Publication extends Books{
     }
     
     static void menuListBooks(){
-        System.out.println("Type what type of books to list:");
+        System.out.println("Enter what type of books to list:");
         System.out.println("________________________________");
         System.out.println("1- E books");
         System.out.println("2- Printed books");
         System.out.println("3- All types");
         System.out.println("________________________________");
+    }
+    
+    static void showListEBooks(){
+        if (ebooks.isEmpty()){
+            System.out.println("---------------List of Ebooks is Empty-----------------");
+        }else {
+            ebooks.forEach(o->System.out.println(o.showInfo()));
+        }
+    }
+    
+    static void showListPrintedBooks(){
+        if (printedBooks.isEmpty()){
+            System.out.println("---------------List of Printed Books is Empty-----------------");
+        }else{
+            printedBooks.forEach(o->System.out.println(o.showInfo()));
+        }
     }
     
     static void readjustPrice(){
