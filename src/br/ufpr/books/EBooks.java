@@ -7,6 +7,7 @@ package br.ufpr.books;
 
 import br.ufpr.people.Author;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.Locale;
 
 /**
@@ -46,6 +47,16 @@ public class EBooks extends Books {
         + "Author Name: " + this.author.getPeapleName() + "\n"
         + "Author Email: " + this.author.getPeapleEmail() + "\n"
         + "Author CPF: " + this.author.getPeapleCpf() + "\n");
+    }
+    
+    public EBooks searchEbook(String bookName, ArrayList<EBooks> ebooks){
+        for (EBooks ebook : ebooks){
+            String x = ebook.getName();
+            if (x.equalsIgnoreCase(bookName)){
+                return ebook;
+            }
+        }
+        return null;
     }
 
     public String getAsin() {

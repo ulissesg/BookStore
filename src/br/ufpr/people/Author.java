@@ -5,6 +5,8 @@
  */
 package br.ufpr.people;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ulisses
@@ -34,6 +36,16 @@ public class Author extends People{
             return false;
         }
         return true;
+    }
+     
+    public Author searchAuthor(double id, ArrayList<Author> authors){
+        for(Author author: authors){
+            double x = author.getID();
+            if (x == id){
+                return author;
+            }
+        }
+        return null;
     }
 
     public double getID() {

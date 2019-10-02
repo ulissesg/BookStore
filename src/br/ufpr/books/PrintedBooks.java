@@ -2,6 +2,7 @@ package br.ufpr.books;
 
 import br.ufpr.people.Author;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.Locale;
 
 /**
@@ -17,6 +18,10 @@ public class PrintedBooks extends Books{
     
     public PrintedBooks (Author author){
         this.author = author;
+    }
+    
+    public PrintedBooks(){
+        
     }
     
     @Override
@@ -37,6 +42,16 @@ public class PrintedBooks extends Books{
         + "Author Name: " + this.author.getPeapleName() + "\n"
         + "Author Email: " + this.author.getPeapleEmail() + "\n"
         + "Author CPF: " + this.author.getPeapleCpf() + "\n");
+    }
+    
+    public PrintedBooks searchPrintedBook(String bookName, ArrayList<PrintedBooks> pB){
+        for (PrintedBooks pBs : pB){
+            String x = pBs.getName();
+            if (x.equalsIgnoreCase(bookName)){
+                return pBs;
+            }
+        }
+        return null;
     }
 
     public double getHeight() {
