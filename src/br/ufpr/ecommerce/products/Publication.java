@@ -175,9 +175,7 @@ public class Publication extends Books{
                 break;
             case 3: 
                 authorRegistration();
-                System.out.println("\n__________________________________________");
-                System.out.print(" Author will be used in the book inclusion !");
-                System.out.println("\n__________________________________________");
+                System.out.print("\n -------- author will be used in the book inclusion. --------");
                 author = authors.get(authors.size() - 1);
                 inputDataEBookAux(author);
                 break;
@@ -227,7 +225,7 @@ public class Publication extends Books{
         input.nextLine();
         ebooks.add(ebook);
         
-        System.out.println("------------------- Book added with success--------------------");
+        System.out.println("\n------------------- Book added with success--------------------");
         
     }
     
@@ -269,9 +267,7 @@ public class Publication extends Books{
                 break;
             case 3: 
                 authorRegistration();
-                System.out.println("\n____________________________________________");
-                System.out.print(" author will be used in the book inclusion.");
-                System.out.println("____________________________________________\n");
+                System.out.print("\n -------- author will be used in the book inclusion. --------");
                 author = authors.get(authors.size() - 1);
                 inputDataPrintedBookAux(author);
                 break;
@@ -323,10 +319,10 @@ public class Publication extends Books{
         System.out.println(" Enter the book weight");
         System.out.print(" -> ");
         printedBook.setWeight(input.nextDouble());
-        input.nextLine();
-        System.out.println("\n_____________________________________________________\n");
-        
+        input.nextLine();        
         printedBooks.add(printedBook);
+        
+        System.out.println("\n------------------- Book added with success--------------------");
     }
     
     // AUTHOR REGISTRATION
@@ -342,14 +338,14 @@ public class Publication extends Books{
             if (author2 == null){
                 putAuthorList(author);
             }else{
-                System.err.println(" Author ID already registered !");
+                System.err.println("\n---------- Author ID already registered !----------");
             }
         }
     }
     
     static void putAuthorList(Author author){
         authors.add(author);
-        System.out.println(" -----------Author registered with success !------------");
+        System.out.println("\n\n -----------Author registered with success !------------");
     }
     
     static void inputDataAuthor(Author author){
@@ -491,13 +487,13 @@ public class Publication extends Books{
         if (ebook == null){
             System.err.println("Book wasn't found!");
         }else if (ebook.priceAdjustment(readjustment) == true){
-            System.out.println(" Price readjusted with success");
+            index = ebooks.indexOf(ebook);
+            ebooks.set(index, ebook);
+            System.out.println("\n----------- Price readjusted with success -----------");
         }else{
             System.err.println(" Something went wrong with the value, try again");
             readjustPrice();
         }
-        index = ebooks.indexOf(ebook);
-        ebooks.set(index, ebook);
     }
     
     static void readjustPricePrintedBook(String bookName, double readjustment){
@@ -507,12 +503,12 @@ public class Publication extends Books{
         if (printedBook == null){
             System.err.println("Book wasn't found!");
         }else if (printedBook.priceAdjustment(readjustment) == true){
+            index = printedBooks.indexOf(printedBook);
+            printedBooks.set(index, printedBook);
             System.out.println("\n----------- Price readjusted with success -----------");
         }else{
             System.out.println(" Something went wrong with the value, try again");
             readjustPrice();
         }
-        index = printedBooks.indexOf(printedBook);
-        printedBooks.set(index, printedBook);
     }
 }
