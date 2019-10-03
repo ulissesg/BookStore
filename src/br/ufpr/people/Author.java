@@ -22,12 +22,12 @@ public class Author extends People{
     }
     
     public String showAuthorInfo(){
-        return("\n--------------------------------------------------------\n"
+        return("\n__________________________________________________________\n"
                 + "Author ID: " + this.getID() + "\n"
                 + "Author Name: " + this.getPeapleName() + "\n"
                 + "Author Email: " + this.getPeapleEmail() + "\n"
                 + "Author CPF: " + this.getPeapleCpf()
-                + "\n-------------------------------------------------------");       
+                + "\n__________________________________________________________\n");       
     }
     
      public boolean verifyAuthor (){

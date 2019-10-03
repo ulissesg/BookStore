@@ -39,7 +39,7 @@ public class Books {
     
     public boolean priceAdjustment (double adjustment){
         if (adjustment <= 30){
-            this.value += this.value * adjustment;
+            this.value += this.value * (adjustment/100);
             return true;
         }  
         return false;

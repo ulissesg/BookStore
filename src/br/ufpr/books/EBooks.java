@@ -35,18 +35,20 @@ public class EBooks extends Books {
         Locale ptBR = new Locale("pt", "BR");
         NumberFormat numberFormat = NumberFormat.getCurrencyInstance(ptBR);
         
-        return("Name: " + this.getName() + "\n"
-        + "Description: " + this.getDescription() + "\n"
-        + "Value: " + numberFormat.format(getValue()) + "\n"
-        + "ASIN: " + this.getAsin() + "\n"
-        + "ISBN - 13: " + this.getIsbn13() + "\n"
-        + "ISBN - 10: " + this.getIsbn10() + "\n"
-        + "Format: " + this.getFormat() + "\n"
-        + "Vocabulary Tips: " + this.isVocabularyTips() + "\n"
-        + "File Size: " + this.getFileSize() + "\n"
-        + "Author Name: " + this.author.getPeapleName() + "\n"
-        + "Author Email: " + this.author.getPeapleEmail() + "\n"
-        + "Author CPF: " + this.author.getPeapleCpf() + "\n");
+        return("\n______________________________________________________\n"
+                + "Name: " + this.getName() + "\n"
+                + "Description: " + this.getDescription() + "\n"
+                + "Value: " + numberFormat.format(getValue()) + "\n"
+                + "ASIN: " + this.getAsin() + "\n"
+                + "ISBN - 13: " + this.getIsbn13() + "\n"
+                + "ISBN - 10: " + this.getIsbn10() + "\n"
+                + "Format: " + this.getFormat() + "\n"
+                + "Vocabulary Tips: " + this.isVocabularyTips() + "\n"
+                + "File Size: " + this.getFileSize() + "\n"
+                + "Author Name: " + this.author.getPeapleName() + "\n"
+                + "Author Email: " + this.author.getPeapleEmail() + "\n"
+                + "Author CPF: " + this.author.getPeapleCpf() + "\n"
+                + "________________________________________________________\n");
     }
     
     public EBooks searchEbook(String bookName, ArrayList<EBooks> ebooks){

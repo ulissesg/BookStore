@@ -30,18 +30,20 @@ public class PrintedBooks extends Books{
         Locale ptBR = new Locale("pt", "BR");
         NumberFormat numberFormat = NumberFormat.getCurrencyInstance(ptBR);
         
-        return("Name: " + this.getName() + "\n"
-        + "Description: " + this.getDescription() + "\n"
-        + "Value: " + numberFormat.format(getValue()) + "\n"
-        + "ISBN - 13: " + this.getIsbn13() + "\n"
-        + "ISBN - 10: " + this.getIsbn10() + "\n"
-        + "Width: " + this.getWidth() + "\n"
-        + "Height: " + this.getHeight() + "\n"
-        + "Depth: " + this.getDepth() + "\n"
-        + "Weight: " + this.getWeight()+ "\n"
-        + "Author Name: " + this.author.getPeapleName() + "\n"
-        + "Author Email: " + this.author.getPeapleEmail() + "\n"
-        + "Author CPF: " + this.author.getPeapleCpf() + "\n");
+        return("\n________________________________________________________\n"
+                + "Name: " + this.getName() + "\n"
+                + "Description: " + this.getDescription() + "\n"
+                + "Value: " + numberFormat.format(getValue()) + "\n"
+                + "ISBN - 13: " + this.getIsbn13() + "\n"
+                + "ISBN - 10: " + this.getIsbn10() + "\n"
+                + "Width: " + this.getWidth() + "\n"
+                + "Height: " + this.getHeight() + "\n"
+                + "Depth: " + this.getDepth() + "\n"
+                + "Weight: " + this.getWeight()+ "\n"
+                + "Author Name: " + this.author.getPeapleName() + "\n"
+                + "Author Email: " + this.author.getPeapleEmail() + "\n"
+                + "Author CPF: " + this.author.getPeapleCpf() + "\n"
+                + "________________________________________________________\n");
     }
     
     public PrintedBooks searchPrintedBook(String bookName, ArrayList<PrintedBooks> pB){
