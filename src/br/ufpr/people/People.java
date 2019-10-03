@@ -11,50 +11,50 @@ package br.ufpr.people;
  */
 public class People {
     
-    private String peapleName;
-    private int peapleAge;
-    private String peapleCpf;
-    private String peapleAdress;
-    private String peapleEmail;
+    private String peopleName;
+    private int peopleAge;
+    private String peopleCpf;
+    private String peopleAdress;
+    private String peopleEmail;
 
-    public String getPeapleName() {
-        return peapleName;
+    public String getPeopleName() {
+        return peopleName;
     }
 
-    public void setPeapleName(String peapleName) {
-        this.peapleName = peapleName;
+    public void setPeopleName(String peopleName) {
+        this.peopleName = peopleName;
     }
 
-    public int getPeapleAge() {
-        return peapleAge;
+    public int getPeopleAge() {
+        return peopleAge;
     }
 
-    public void setPeapleAge(int peapleAge) {
-        this.peapleAge = peapleAge;
+    public void setPeopleAge(int peopleAge) {
+        this.peopleAge = peopleAge;
     }
 
-    public String getPeapleCpf() {
-        return peapleCpf;
+    public String getPeopleCpf() {
+        return peopleCpf;
     }
 
-    public void setPeapleCpf(String peapleCpf) {
-        this.peapleCpf = peapleCpf;
+    public void setPeopleCpf(String peopleCpf) {
+        this.peopleCpf = peopleCpf;
     }
 
-    public String getPeapleAdress() {
-        return peapleAdress;
+    public String getPeopleAdress() {
+        return peopleAdress;
     }
 
-    public void setPeapleAdress(String peapleAdress) {
-        this.peapleAdress = peapleAdress;
+    public void setPeopleAdress(String peopleAdress) {
+        this.peopleAdress = peopleAdress;
     }
 
-    public String getPeapleEmail() {
-        return peapleEmail;
+    public String getPeopleEmail() {
+        return peopleEmail;
     }
 
-    public void setPeapleEmail(String peapleEmail) {
-        this.peapleEmail = peapleEmail;
+    public void setPeopleEmail(String peopleEmail) {
+        this.peopleEmail = peopleEmail;
     }
    
 }

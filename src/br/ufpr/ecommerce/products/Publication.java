@@ -16,7 +16,6 @@ import java.util.TimeZone;
  * @author ulisses
  */
 public class Publication extends Books{
-    static Author authorTest = new Author();
     static Scanner input = new Scanner(System.in);
     static ArrayList <Author> authors = new ArrayList<>();
     static ArrayList<EBooks> ebooks = new ArrayList<>();
@@ -218,7 +217,7 @@ public class Publication extends Books{
         System.out.println(" Enter the book format:");
         System.out.print(" -> ");
         ebook.setFormat(input.nextLine());
-        VTEBooks(ebook);
+        verifyTipsEbook(ebook);
         System.out.println(" Enter the book size:");
         System.out.print(" -> ");
         ebook.setFileSize(input.nextDouble());
@@ -229,7 +228,7 @@ public class Publication extends Books{
         
     }
     
-    static void VTEBooks(EBooks ebook){
+    static void verifyTipsEbook(EBooks ebook){
         System.out.println(" Enter 'yes' for existent vocabulary tips and 'no' for not existent:");
         System.out.print(" -> ");
         String answer = input.nextLine();
@@ -356,13 +355,13 @@ public class Publication extends Books{
         input.nextLine();
         System.out.println(" Enter the Author name:");
         System.out.print(" -> ");
-        author.setPeapleName(input.nextLine());
+        author.setPeopleName(input.nextLine());
         System.out.println(" Enter the Author e-mail:");
         System.out.print(" -> ");
-        author.setPeapleEmail(input.nextLine());
+        author.setPeopleEmail(input.nextLine());
         System.out.println(" Enter the Author CPF:");
         System.out.print(" -> ");
-        author.setPeapleCpf(input.nextLine());     
+        author.setPeopleCpf(input.nextLine());     
     }
     
     // LIST BOOKS

@@ -40,9 +40,9 @@ public class PrintedBooks extends Books{
                 + "Height: " + this.getHeight() + "\n"
                 + "Depth: " + this.getDepth() + "\n"
                 + "Weight: " + this.getWeight()+ "\n"
-                + "Author Name: " + this.author.getPeapleName() + "\n"
-                + "Author Email: " + this.author.getPeapleEmail() + "\n"
-                + "Author CPF: " + this.author.getPeapleCpf() + "\n"
+                + "Author Name: " + this.author.getPeopleName() + "\n"
+                + "Author Email: " + this.author.getPeopleEmail() + "\n"
+                + "Author CPF: " + this.author.getPeopleCpf() + "\n"
                 + "________________________________________________________\n");
     }
     

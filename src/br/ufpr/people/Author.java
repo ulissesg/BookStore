@@ -16,23 +16,23 @@ public class Author extends People{
     
     public Author() {
         this.setID(0000000000000);
-        this.setPeapleName("xxxxxxxxxxxxxx");
-        this.setPeapleEmail("example@gmail.com");
-        this.setPeapleCpf("xxx.xxx.xxx-xx");
+        this.setPeopleName("xxxxxxxxxxxxxx");
+        this.setPeopleEmail("example@gmail.com");
+        this.setPeopleCpf("xxx.xxx.xxx-xx");
     }
     
     public String showAuthorInfo(){
         return("\n__________________________________________________________\n"
                 + "Author ID: " + this.getID() + "\n"
-                + "Author Name: " + this.getPeapleName() + "\n"
-                + "Author Email: " + this.getPeapleEmail() + "\n"
-                + "Author CPF: " + this.getPeapleCpf()
+                + "Author Name: " + this.getPeopleName() + "\n"
+                + "Author Email: " + this.getPeopleEmail() + "\n"
+                + "Author CPF: " + this.getPeopleCpf()
                 + "\n__________________________________________________________\n");       
     }
     
      public boolean verifyAuthor (){
-        if (this.getPeapleName() == null && this.getPeapleEmail() == null 
-                && this.getPeapleCpf() == null){
+        if (this.getPeopleName() == null && this.getPeopleEmail() == null 
+                && this.getPeopleCpf() == null){
             return false;
         }
         return true;

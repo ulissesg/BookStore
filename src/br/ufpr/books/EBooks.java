@@ -45,9 +45,9 @@ public class EBooks extends Books {
                 + "Format: " + this.getFormat() + "\n"
                 + "Vocabulary Tips: " + this.isVocabularyTips() + "\n"
                 + "File Size: " + this.getFileSize() + "\n"
-                + "Author Name: " + this.author.getPeapleName() + "\n"
-                + "Author Email: " + this.author.getPeapleEmail() + "\n"
-                + "Author CPF: " + this.author.getPeapleCpf() + "\n"
+                + "Author Name: " + this.author.getPeopleName() + "\n"
+                + "Author Email: " + this.author.getPeopleEmail() + "\n"
+                + "Author CPF: " + this.author.getPeopleCpf() + "\n"
                 + "________________________________________________________\n");
     }
     
