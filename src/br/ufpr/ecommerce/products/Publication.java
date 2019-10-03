@@ -16,13 +16,13 @@ import java.util.TimeZone;
  * @author ulisses
  */
 public class Publication extends Books{
-    
+    static Author authorTest = new Author();
     static Scanner input = new Scanner(System.in);
     static ArrayList <Author> authors = new ArrayList<>();
     static ArrayList<EBooks> ebooks = new ArrayList<>();
     static ArrayList<PrintedBooks> printedBooks = new ArrayList<>();
     
-    public static void main(String[] args) {
+    public static void main(String[] args) {   
         header();
         menu();
     }
@@ -332,16 +332,24 @@ public class Publication extends Books{
     // AUTHOR REGISTRATION
     
     static void authorRegistration(){
-//        Author author2 = new Author(); //verify when searchAuthor send back "null"
+        Author author2 = new Author();
         Author author = new Author();
         inputDataAuthor(author);
-//        author2 = author2.searchAuthor(author.getID(), authors);
-//        if (author2.equals(author)){
-//            System.err.println(" Author ID already registered !");
-//        }else{
-            authors.add(author);
-            System.out.println(" -----------Author registered with success !------------");
-//        }
+        if (authors.isEmpty()){
+            putAuthorList(author);
+        }else{
+            author2 = author2.searchAuthor(author.getID(), authors);
+            if (author2 == null){
+                putAuthorList(author);
+            }else{
+                System.err.println(" Author ID already registered !");
+            }
+        }
+    }
+    
+    static void putAuthorList(Author author){
+        authors.add(author);
+        System.out.println(" -----------Author registered with success !------------");
     }
     
     static void inputDataAuthor(Author author){
