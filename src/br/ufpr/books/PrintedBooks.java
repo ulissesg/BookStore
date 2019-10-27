@@ -9,7 +9,13 @@ import java.util.Locale;
  *
  * @author ulisses
  */
-public class PrintedBooks extends Books{
+public class PrintedBooks implements Books{
+    private String name;
+    private String description;
+    private double value;
+    private String isbn13;
+    private String isbn10;
+    private Author author = new Author();
     private double height;
     private double width;
     private double depth;
@@ -31,6 +37,7 @@ public class PrintedBooks extends Books{
         NumberFormat numberFormat = NumberFormat.getCurrencyInstance(ptBR);
         
         return("\n________________________________________________________\n"
+                + "Type: Printed book \n"
                 + "Name: " + this.getName() + "\n"
                 + "Description: " + this.getDescription() + "\n"
                 + "Value: " + numberFormat.format(getValue()) + "\n"
@@ -45,16 +52,7 @@ public class PrintedBooks extends Books{
                 + "Author CPF: " + this.author.getPeopleCpf() + "\n"
                 + "________________________________________________________\n");
     }
-    
-    public PrintedBooks searchPrintedBook(String bookName, ArrayList<PrintedBooks> pB){
-        for (PrintedBooks pBs : pB){
-            String x = pBs.getName();
-            if (x.equalsIgnoreCase(bookName)){
-                return pBs;
-            }
-        }
-        return null;
-    }
+
 
     public double getHeight() {
         return height;
@@ -86,5 +84,73 @@ public class PrintedBooks extends Books{
 
     public void setWeight(double weight) {
         this.weight = weight;
+    }
+
+    @Override
+    public boolean priceAdjustment(double adjustment) {
+        if (adjustment <= 30){
+            this.value += this.value * (adjustment/100);
+            return true;
+        }  
+        return false;
+    }
+
+    @Override
+    public Books searchBook(String bookName, ArrayList<Books> books) {
+        for (Books pBs : books){
+            if (pBs.getName().equalsIgnoreCase(bookName)){
+                return pBs;
+            }
+        }
+        return null;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
+    }
+
+    public String getIsbn13() {
+        return isbn13;
+    }
+
+    public void setIsbn13(String isbn13) {
+        this.isbn13 = isbn13;
+    }
+
+    public String getIsbn10() {
+        return isbn10;
+    }
+
+    public void setIsbn10(String isbn10) {
+        this.isbn10 = isbn10;
     }
 }

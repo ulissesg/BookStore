@@ -15,11 +15,10 @@ import java.util.TimeZone;
  *
  * @author ulisses
  */
-public class Publication extends Books{
+public class Publication extends EBooks implements Books{
     static Scanner input = new Scanner(System.in);
     static ArrayList <Author> authors = new ArrayList<>();
-    static ArrayList<EBooks> ebooks = new ArrayList<>();
-    static ArrayList<PrintedBooks> printedBooks = new ArrayList<>();
+    static ArrayList<Books> books = new ArrayList<>();
     
     public static void main(String[] args) {   
         header();
@@ -222,7 +221,7 @@ public class Publication extends Books{
         System.out.print(" -> ");
         ebook.setFileSize(input.nextDouble());
         input.nextLine();
-        ebooks.add(ebook);
+        books.add(ebook);
         
         System.out.println("\n------------------- Book added with success !--------------------");
         
@@ -278,48 +277,48 @@ public class Publication extends Books{
     
     static void inputDataPrintedBookAux(Author author){
         if (author != null) {
-           PrintedBooks printedBook = new PrintedBooks(author);
-            inputDataPrintedBookBook(printedBook);
+           PrintedBooks book = new PrintedBooks(author);
+            inputDataPrintedBookBook(book);
        }else{
            System.err.println("------------ Something is wrong with the author, try again !-------------");
            inputDataPrintedBook();
        }
     }
     
-    static void inputDataPrintedBookBook (PrintedBooks printedBook){
+    static void inputDataPrintedBookBook (PrintedBooks book){
         System.out.println(" Enter the book name:");
         System.out.print(" -> ");
-        printedBook.setName(input.nextLine());
+        book.setName(input.nextLine());
         System.out.println(" Enter the book description:");
         System.out.print(" -> ");
-        printedBook.setDescription(input.nextLine());
+        book.setDescription(input.nextLine());
         System.out.println(" Enter the book value:");
         System.out.print(" -> ");
-        printedBook.setValue(input.nextDouble());
+        book.setValue(input.nextDouble());
         input.nextLine();
         System.out.println(" Enter the book ISBN-10 ( If it dosen't exist type 0 ):");
         System.out.print(" -> ");
-        printedBook.setIsbn10(input.nextLine());
+        book.setIsbn10(input.nextLine());
         System.out.println(" Enter the book ISBN-13 ( If it dosen't exist type 0 ):");
         System.out.print(" -> ");
-        printedBook.setIsbn13(input.nextLine());
+        book.setIsbn13(input.nextLine());
         System.out.println(" Enter the book width:");
         System.out.print(" -> ");
-        printedBook.setWidth(input.nextDouble());
+        book.setWidth(input.nextDouble());
         input.nextLine();
         System.out.println(" Enter the book height:");
         System.out.print(" -> ");
-        printedBook.setHeight(input.nextDouble());
+        book.setHeight(input.nextDouble());
         input.nextLine();
         System.out.println(" Enter the book Depth:");
         System.out.print(" -> ");
-        printedBook.setDepth(input.nextDouble());
+        book.setDepth(input.nextDouble());
         input.nextLine();
         System.out.println(" Enter the book weight:");
         System.out.print(" -> ");
-        printedBook.setWeight(input.nextDouble());
+        book.setWeight(input.nextDouble());
         input.nextLine();        
-        printedBooks.add(printedBook);
+        books.add(book);
         
         System.out.println("\n------------------- Book added with success !--------------------");
     }
@@ -367,56 +366,11 @@ public class Publication extends Books{
     // LIST BOOKS
     
     static void listBooks(){
-        menuListBooks();
-        System.out.print(" -> ");
-        int option = input.nextInt();
-        input.nextLine();
-        switchListBooks(option);
-    }
-    
-    static void menuListBooks(){
-        System.out.println(" Enter what type of books to list:");
-        System.out.println("___________________________________");
-        System.out.println(" 1- E books");
-        System.out.println(" 2- Printed books");
-        System.out.println(" 3- All types");
-        System.out.println("___________________________________");
-    }
-    
-    static void switchListBooks(int option){
-        switch (option){
-            case 1:
-                showListEBooks();
-                break;
-            case 2:
-                showListPrintedBooks();
-                break;
-            case 3: 
-                showListEBooks();
-                showListPrintedBooks();
-                break;
-            default:
-                System.err.println("\n--------------- Something went wrong, Try again !---------------\n");
-                listBooks();
+        if (books.isEmpty()){
+            System.err.println("---------------List of books is Empty !-----------------");
         }
-    }
-    
-    static void showListEBooks(){
-        if (ebooks.isEmpty()){
-            System.err.println("---------------List of Ebooks is Empty !-----------------");
-        }else {
-            System.out.println("\n\n------------------- LIST OF E-BOOKS --------------------");
-            ebooks.forEach(o->System.out.println(o.showInfo()));
-        }
-    }
-    
-        static void showListPrintedBooks(){
-        if (printedBooks.isEmpty()){
-            System.err.println("---------------List of Printed Books is Empty !-----------------");
-        }else{
-            System.out.println("\n\n---------------- LIST OF PRINTED BOOKS -----------------");
-            printedBooks.forEach(o->System.out.println(o.showInfo()));
-        }
+        System.out.println("\n\n------------------- LIST OF BOOKS --------------------");
+        books.forEach(o->System.out.println(o.showInfo()));
     }
     
     // LIST AUTHORS    
@@ -435,12 +389,7 @@ public class Publication extends Books{
     static void readjustPrice(){
         String bookName;
         double readjustment;
-        int option;
-        
-        menuReadjustPrice();
-        System.out.print(" -> ");
-        option = input.nextInt();
-        input.nextLine();
+
         System.out.println(" Enter the name of the book that you wanna readjust the price:");
         System.out.print(" -> ");
         bookName = input.nextLine();
@@ -449,7 +398,7 @@ public class Publication extends Books{
         readjustment = input.nextDouble();
         
         if (readjustment <= 30){
-            switchReadjustPrice(option, bookName, readjustment);
+            readjustPriceBook(bookName, readjustment);
         }else{
             System.err.println("---------- Something is wrong with the readjustment value, try again !-----------");
             readjustPrice();
@@ -457,53 +406,15 @@ public class Publication extends Books{
        
     }
     
-    static void menuReadjustPrice(){
-        System.out.println(" Enter the number of one option:");
-        System.out.println("_____________________________________");
-        System.out.println(" 1- Change price of an E Book");
-        System.out.println(" 2- Change price of an Printed Book");
-        System.out.println("_____________________________________");
-    }
-    
-    static void switchReadjustPrice(int option, String bookName, double readjustment){
-        switch(option){
-            case 1:
-                reajustPriceEBook(bookName, readjustment);
-                break;
-            case 2:
-                readjustPricePrintedBook(bookName, readjustment);
-                break;
-            default:
-                System.err.println("----------- Something went wrong with the option, try again ! -----------");
-                readjustPrice(); 
-        }
-    }
-        
-    static void reajustPriceEBook (String bookName, double readjustment){
+    static void readjustPriceBook(String bookName, double readjustment){
         int index;
-        EBooks ebook = new EBooks();
-        ebook = ebook.searchEbook(bookName, ebooks);
-        if (ebook == null){
-            System.err.println("------------Book wasn't found!-------------");
-        }else if (ebook.priceAdjustment(readjustment) == true){
-            index = ebooks.indexOf(ebook);
-            ebooks.set(index, ebook);
-            System.out.println("\n----------- Price readjusted with success ! -----------");
-        }else{
-            System.err.println("----------- Something went wrong with the value, try again !------------");
-            readjustPrice();
-        }
-    }
-    
-    static void readjustPricePrintedBook(String bookName, double readjustment){
-        int index;
-        PrintedBooks printedBook = new PrintedBooks();
-        printedBook = printedBook.searchPrintedBook(bookName, printedBooks);
-        if (printedBook == null){
+        Books book = new EBooks();
+        book = book.searchBook(bookName, books);
+        if (book == null){
             System.err.println("------------Book wasn't found!--------------");
-        }else if (printedBook.priceAdjustment(readjustment) == true){
-            index = printedBooks.indexOf(printedBook);
-            printedBooks.set(index, printedBook);
+        }else if (book.priceAdjustment(readjustment) == true){
+            index = books.indexOf(book);
+            books.set(index, book);
             System.out.println("\n----------- Price readjusted with success !-----------");
         }else{
             System.out.println("------------ Something went wrong with the value, try again ! ------------");

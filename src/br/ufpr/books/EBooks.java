@@ -14,7 +14,14 @@ import java.util.Locale;
  *
  * @author ulisses
  */
-public class EBooks extends Books {
+public class EBooks implements Books {
+    
+    private String name;
+    private String description;
+    private double value;
+    private String isbn13;
+    private String isbn10;
+    public Author author = new Author();
     private String asin;
     private String format;
     private boolean vocabularyTips;
@@ -29,6 +36,30 @@ public class EBooks extends Books {
         this.author = author;
     }
     
+    public EBooks(String name, String description, double value, String isbn13, String isbn10, 
+            String asin, String format, boolean vocabularyTips, double filesize, Author author){
+        this.name = name;
+        this.description = description;
+        this.value = value;
+        this.isbn13 = isbn13;
+        this.isbn10 = isbn10;
+        this.asin = asin;
+        this.format = format;
+        this.vocabularyTips = vocabularyTips;
+        this.fileSize = filesize;
+        this.author = author;
+    }
+
+    
+    @Override
+    public boolean priceAdjustment(double adjustment) {
+        if (adjustment <= 30){
+            this.value += this.value * (adjustment/100);
+            return true;
+        }  
+        return false;
+    }
+    
     @Override
     public String showInfo(){
         
@@ -36,6 +67,7 @@ public class EBooks extends Books {
         NumberFormat numberFormat = NumberFormat.getCurrencyInstance(ptBR);
         
         return("\n______________________________________________________\n"
+                + "Type: E-book \n"
                 + "Name: " + this.getName() + "\n"
                 + "Description: " + this.getDescription() + "\n"
                 + "Value: " + numberFormat.format(getValue()) + "\n"
@@ -51,15 +83,16 @@ public class EBooks extends Books {
                 + "________________________________________________________\n");
     }
     
-    public EBooks searchEbook(String bookName, ArrayList<EBooks> ebooks){
-        for (EBooks ebook : ebooks){
-            String x = ebook.getName();
-            if (x.equalsIgnoreCase(bookName)){
-                return ebook;
+    @Override
+    public Books searchBook(String bookName, ArrayList<Books> books) {
+        for (Books book : books){
+            if (book.getName().equalsIgnoreCase(bookName)){
+                return book;
             }
         }
         return null;
     }
+
 
     public String getAsin() {
         return asin;
@@ -93,5 +126,46 @@ public class EBooks extends Books {
         this.format = format;
     }
 
-   
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
+    }
+
+    public String getIsbn13() {
+        return isbn13;
+    }
+
+    public void setIsbn13(String isbn13) {
+        this.isbn13 = isbn13;
+    }
+
+    public String getIsbn10() {
+        return isbn10;
+    }
+
+    public void setIsbn10(String isbn10) {
+        this.isbn10 = isbn10;
+    }
+
+    
+
 }

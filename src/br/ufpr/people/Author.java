@@ -21,6 +21,13 @@ public class Author extends People{
         this.setPeopleCpf("xxx.xxx.xxx-xx");
     }
     
+    public Author(double ID, String name, String email, String cpf) {
+        this.setID(ID);
+        this.setPeopleName(name);
+        this.setPeopleEmail(email);
+        this.setPeopleCpf(cpf);
+    }
+    
     public String showAuthorInfo(){
         return("\n__________________________________________________________\n"
                 + "Author ID: " + this.getID() + "\n"
