@@ -97,11 +97,11 @@ public class PrintedBooks implements Books{
 
     @Override
     public Books searchBook(String bookName, ArrayList<Books> books) {
-        for (Books pBs : books){
-            if (pBs.getName().equalsIgnoreCase(bookName)){
-                return pBs;
-            }
-        }
+//        for (Books pBs : books){
+//            if (pBs.getName().equalsIgnoreCase(bookName)){
+//                return pBs;
+//            }
+//        }
         return null;
     }
 

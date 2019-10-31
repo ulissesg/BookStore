@@ -1,4 +1,5 @@
 package br.ufpr.ecommerce.products;
+import br.ufpr.books.SearchBook;
 import br.ufpr.books.Books;
 import br.ufpr.books.EBooks;
 import br.ufpr.books.PrintedBooks;
@@ -368,9 +369,10 @@ public class Publication extends EBooks implements Books{
     static void listBooks(){
         if (books.isEmpty()){
             System.err.println("---------------List of books is Empty !-----------------");
+        }else{
+            System.out.println("\n\n------------------- LIST OF BOOKS --------------------");
+            books.forEach(o->System.out.println(o.showInfo()));
         }
-        System.out.println("\n\n------------------- LIST OF BOOKS --------------------");
-        books.forEach(o->System.out.println(o.showInfo()));
     }
     
     // LIST AUTHORS    
@@ -408,7 +410,7 @@ public class Publication extends EBooks implements Books{
     
     static void readjustPriceBook(String bookName, double readjustment){
         int index;
-        Books book = new EBooks();
+        Books book = new SearchBook();
         book = book.searchBook(bookName, books);
         if (book == null){
             System.err.println("------------Book wasn't found!--------------");

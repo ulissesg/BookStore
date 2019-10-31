@@ -85,11 +85,11 @@ public class EBooks implements Books {
     
     @Override
     public Books searchBook(String bookName, ArrayList<Books> books) {
-        for (Books book : books){
-            if (book.getName().equalsIgnoreCase(bookName)){
-                return book;
-            }
-        }
+//        for (Books book : books){
+//            if (book.getName().equalsIgnoreCase(bookName)){
+//                return book;
+//            }
+//        }
         return null;
     }
 
