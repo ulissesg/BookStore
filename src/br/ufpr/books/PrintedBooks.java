@@ -52,6 +52,20 @@ public class PrintedBooks implements Books{
                 + "Author CPF: " + this.author.getPeopleCpf() + "\n"
                 + "________________________________________________________\n");
     }
+    
+    @Override
+    public boolean priceAdjustment(double adjustment) {
+        if (adjustment <= 30){
+            this.value += this.value * (adjustment/100);
+            return true;
+        }  
+        return false;
+    }
+
+    @Override
+    public Books searchBook(String bookName, ArrayList<Books> books) {
+        return null;
+    }
 
 
     public double getHeight() {
@@ -84,25 +98,6 @@ public class PrintedBooks implements Books{
 
     public void setWeight(double weight) {
         this.weight = weight;
-    }
-
-    @Override
-    public boolean priceAdjustment(double adjustment) {
-        if (adjustment <= 30){
-            this.value += this.value * (adjustment/100);
-            return true;
-        }  
-        return false;
-    }
-
-    @Override
-    public Books searchBook(String bookName, ArrayList<Books> books) {
-//        for (Books pBs : books){
-//            if (pBs.getName().equalsIgnoreCase(bookName)){
-//                return pBs;
-//            }
-//        }
-        return null;
     }
 
     public Author getAuthor() {
