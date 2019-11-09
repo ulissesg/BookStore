@@ -12,23 +12,7 @@ import java.util.ArrayList;
  * @author ulisses
  */
 public interface Books {
-    
-//    
-//    public Books(){
-//        this.isbn10 = "0000000000";
-//        this.isbn13 = "000-0-00-000000-0";
-//        this.name = "xxxxxxxxxxxxxxxx";
-//        this.description = "xxxxxxxxxxxxxxxxxxx";
-//    }
-//    
-//    public Books(Author author){
-//        this.isbn10 = "0000000000";
-//        this.isbn13 = "000-0-00-000000-0";
-//        this.name = "xxxxxxxxxxxxxxxx";
-//        this.description = "xxxxxxxxxxxxxxxxxxx";
-//        this.author = author;
-//    }
-    
+       
     public String showInfo();
     
     public boolean priceAdjustment (double adjustment);   
